@@ -1,45 +1,34 @@
-class Pessoa:
-    def __init__(self, nome: str, idade: int, peso_kg: float):
-        self._nome = nome
-        self._idade = idade
-        self._peso_kg = peso_kg
+class Person:
+    def __init__(self, name: str, age: int):
+        self._name  = name
+        self._age   = age
 
     @property
-    def nome(self) -> str:
+    def name(self) -> str:
         """Getter para o nome."""
-        return self._nome
+        return self._name
 
-    @nome.setter
-    def nome(self, novo_nome: str) -> None:
+    @name.setter
+    def name(self, novo_nome: str) -> None:
         """Setter para o nome."""
-        self._nome = novo_nome
+        self._name = novo_nome
 
     @property
-    def idade(self) -> int:
+    def age(self) -> int:
         """Getter para a idade."""
-        return self._idade
+        return self._age
 
-    @idade.setter
-    def idade(self, nova_idade: int) -> None:
+    @age.setter
+    def age(self, nova_idade: int) -> None:
         """Setter para a idade."""
         if nova_idade >= 0:
-            self._idade = nova_idade
+            self._age = nova_idade
         else:
             raise ValueError("A idade não pode ser negativa.")
 
-    @property
-    def peso_kg(self) -> float:
-        """Getter para o peso em quilogramas."""
-        return self._peso_kg
-
-    @peso_kg.setter
-    def peso_kg(self, novo_peso: float) -> None:
-        """Setter para o peso em quilogramas."""
-        if novo_peso > 0:
-            self._peso_kg = novo_peso
-        else:
-            raise ValueError("O peso deve ser maior que zero.")
-
     def __str__(self) -> str:
         """Retorna uma representação em string da Pessoa."""
-        return f"Pessoa(nome={self.nome}, idade={self.idade}, peso_kg={self.peso_kg})"
+        return f"Pessoa(nome={self._name}, idade={self._age})"
+
+
+person = Person('Gabriel', 31)
